@@ -115,7 +115,7 @@ class Snake {
 
   checkGameOver(){
     if(this.head < 0 || this.head > this.board.length) this.gameOver();
-    if( (this.head % 19 === 0) && (this.head < this.neck)) this.gameOver();
+    if( (this.head % 20 === 19) && (this.head < this.neck)) this.gameOver();
     if( (this.head % 20 === 0) && (this.head > this.neck)) this.gameOver();
   }
 
