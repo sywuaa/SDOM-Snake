@@ -88,6 +88,18 @@ class Snake {
     document.addEventListener( 'keydown', this.handleKeyPress );
   }
 
+  initialize(){
+    this.setBoard();
+    this.board = $s('li').htmlElements;
+    this.snake = this.board.slice(44,47);
+    this.neck = 45;
+    this.head = 46;
+    this.direction = 'right';
+    this.delay = 0;
+    this.randomApple();
+    this.loop();
+  }
+
   randomApple(){
     let num = Math.floor(Math.random() * 400);
     let appleBlock = $s(this.board[num]);
@@ -186,7 +198,7 @@ class Snake {
   }
 
   checkGameOver(){
-    if(this.head < 0 || this.head > this.board.length) this.gameOver();
+    if(this.head < 0 || this.head > 399) this.gameOver();
     if( (this.head % 20 === 19) && (this.head < this.neck)) this.gameOver();
     if( (this.head % 20 === 0) && (this.head > this.neck)) this.gameOver();
   }
@@ -194,7 +206,8 @@ class Snake {
   gameOver(){
     clearInterval(this.intervalID);
     this.root.empty();
-    this.root.append('<img src=images/gameOver.png width=440 height=440 />');
+    this.initialize();
+    // this.root.append('<img src=images/gameOver.png width=440 height=440 />');
   }
 
 
