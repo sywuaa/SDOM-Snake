@@ -96,7 +96,7 @@ class Snake {
   }
 
   loop(){
-    this.intervalID = setInterval(this.start.bind(this), 500);
+    this.intervalID = setInterval(this.start.bind(this), 200);
   }
 
   start() {

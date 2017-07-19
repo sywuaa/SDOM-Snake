@@ -1,4 +1,4 @@
-html, body, header, nav, h1, a,
+html, body, header, nav, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
 fieldset, label, input, textarea,
@@ -16,7 +16,28 @@ span, article, footer, time, small {
   background: transparent;
 }
 
-div {
+body {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+
+}
+
+.left {
+  padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+snake {
   margin: 50px;
   display: flex;
   width: 440px;
@@ -40,3 +61,40 @@ li {
 .apple {
   background-color: Red;
 }
+
+.right {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.links {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+.links a {
+  margin: 20px;
+}
+
+.links i {
+  font-size: 4rem;
+}
+
+.github-link {
+  color: Black;
+}
+
+.github-link:hover{
+  color: White;
+}
+
+.linkedin-link {
+  color: Blue;
+}
+
+.linkedin-link:hover {
+  color: White;
