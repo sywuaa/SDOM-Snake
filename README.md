@@ -139,18 +139,18 @@ Sends HTTP Request and returns a `Promise` object.  Accepts a `Hash` object as a
 This demo is created using SDOM library to manipulate one `htmlElement` that I named `snake`.
 
 ---
+```html
+<div class="mid">
+  <h1>SDOM Snake</h1>
+  <snake> </snake>
+</div>
+```
+---
 ```javascript
   $s( () => {
     const root = $s('snake');
     new Snake(root);
   });
-  ```
----
-```html
-  <div class="mid">
-    <h1>SDOM Snake</h1>
-    <snake> </snake>
-  </div>
   ```
 ---
 ```javaScript
@@ -184,8 +184,10 @@ li {
 }
 ```
 
+![board](images/board.png)
+
 * Once the board is setup, we can manually capture the beginning snake segment `li`s and store it in an array.
-* Using callback function, we can create the movement using the logic of a `Queue`. We `push` in an `li` into the snake array and `shift` the oldest `li`. But we need use addClass to the `li` we pushing and removeClass to the `li` we shifting.
+* Using callback function, we can create the snake movement using the logic of a `Queue`. We `push` in a `li` into the snake array and `shift` the oldest `li`. But we need use addClass to the `li` we pushing and removeClass to the `li` we shifting.
 
 ```JavaScript
 this.snake.push(this.board[this.head]);
@@ -195,7 +197,7 @@ let tail = $s(this.snake.shift());
 tail.removeClass('snake');
 ```
 
-Then again we are use CSS to draw our snake.
+Then again we use CSS to draw our snake.
 ```CSS
 
 .snake {
