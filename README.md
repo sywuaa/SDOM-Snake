@@ -1,4 +1,5 @@
 # SDOM
+## SDOM-Snake [Demo](https://www.sywu.us/SDOM-Snake/)
 
 SDOM is a JavaScript DOM interaction library built base on jQuery.
 SDOM can:
@@ -126,8 +127,78 @@ Removes event listener from each `DOMNodeCollection` element by just passing in 
 ### $s.ajax
 
 Sends HTTP Request and returns a `Promise` object.  Accepts a `Hash` object as an argument with any of the following attributes:
-  * method (default: "GET"): HTTP Request method or type
-  * url (default: window.location.href): URL for HTTP Request
-  * success: success callback
-  * error: error callback
-  * contentType (default: json)
+  * method (default: `"GET"`): HTTP Request method or type
+  * url (default: `window.location.href`): URL for HTTP Request
+  * success: `success callback`
+  * error: `error callback`
+  * contentType (default: `json`)
+
+
+---
+# Demo - Snake
+This demo is created using SDOM library to manipulate one `htmlElement` that I named `snake`.
+
+---
+```javascript
+  $s( () => {
+    const root = $s('snake');
+    new Snake(root);
+  });
+  ```
+---
+```html
+  <div class="mid">
+    <h1>SDOM Snake</h1>
+    <snake> </snake>
+  </div>
+  ```
+---
+```javaScript
+this.setBoard();
+
+setBoard(){
+  for( let i = 0; i < 400; i++) {
+    this.root.append(`<li key=${i}></li>`);
+  }
+}
+```
+
+Using the `append` function we then able to create the mini square blocks with the help of `CSS`. `CSS` also help us shape the board size.
+
+```CSS
+snake {
+  margin: 50px;
+  display: flex;
+  width: 440px;
+  height: 440px;
+  flex-wrap: wrap;
+  Border: 2px solid Black;
+}
+
+li {
+  list-style: none;
+  border: 1px solid Gray;
+  width: 20px;
+  height: 20px;
+  background-color: White;
+}
+```
+
+* Once the board is setup, we can manually capture the beginning snake segment `li`s and store it in an array.
+* Using callback function, we can create the movement using the logic of a `Queue`. We `push` in an `li` into the snake array and `shift` the oldest `li`. But we need use addClass to the `li` we pushing and removeClass to the `li` we shifting.
+
+```JavaScript
+this.snake.push(this.board[this.head]);
+this.snakeDomSegs.forEach( (el) => (el).addClass('snake'));
+
+let tail = $s(this.snake.shift());
+tail.removeClass('snake');
+```
+
+Then again we are use CSS to draw our snake.
+```CSS
+
+.snake {
+  background-color: Green;
+}
+```

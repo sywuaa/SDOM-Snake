@@ -139,7 +139,6 @@ class Snake {
   }
 
 
-
 }
 
 MOVE = {
