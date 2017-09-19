@@ -172,7 +172,7 @@ snake {
   width: 440px;
   height: 440px;
   flex-wrap: wrap;
-  Border: 2px solid Black;
+  Border: 2px solid Grey;
 }
 
 li {
